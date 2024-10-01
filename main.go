@@ -39,6 +39,7 @@ func main() {
 	// Example output to verify the import
 	for _, company := range companies {
 		sendMail(company)
+		break
 	}
 }
 
@@ -171,7 +172,7 @@ func sendMail(company Company) {
 	// Creates a new mail
 	moveMouseByPercentage(9.6875, 94.375)
 	robotgo.Click("left", false)
-	robotgo.MouseSleep = 3000
+	robotgo.MouseSleep = 5000
 
 	// Enters title
 	moveMouseByPercentage(32.8125, 25.0697)
@@ -184,7 +185,6 @@ func sendMail(company Company) {
 	robotgo.Click()
 
 	// Enter CC emails
-
 	moveMouseByPercentage(32.8125, 36.4583)
 	replaceInputFieldCC(company.CC)
 
