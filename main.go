@@ -10,6 +10,15 @@ import (
 	"github.com/go-vgo/robotgo"
 )
 
+// Husk at å følge linux med / ikke \
+var CSVPath string = "C:/Users/Alexa/Desktop/bedkombedpressinvsender/test.csv"
+
+// Navnet til den som skal stå som eier. Må være en av de som allerede eksisterer.
+var EmailOwner string = "Alexander Engebrigtsen Heier"
+
+// Om boten skal sende mailen eller ikke
+var ToSend bool = false
+
 // Company represents a single entry in your CSV file
 type Company struct {
 	Bedrift string
@@ -199,5 +208,8 @@ func sendMail(company Company) {
 
 	robotgo.MouseSleep = 500
 	moveMouseByPercentage(65.7422, 91.4)
-	robotgo.Click()
+
+	if ToSend {
+		robotgo.Click()
+	}
 }
