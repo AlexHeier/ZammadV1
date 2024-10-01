@@ -5,6 +5,7 @@ Automatiserer det å sende standard invitasjonens mailen til Login - BedKom ved 
 ## Before use
 
 Den er laget for opera med vanlig innstilliger på Windows 11.
+Skjerm oppløsning 1440p!
 
 Sørg for at du kan kjøre golang kode.
 
