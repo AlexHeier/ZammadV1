@@ -168,28 +168,42 @@ func replaceInputFieldContentMultiLine(companyName string) {
 
 func sendMail(company Company) {
 
+	// Creates a new mail
 	moveMouseByPercentage(9.6875, 94.375)
 	robotgo.Click("left", false)
 	robotgo.MouseSleep = 3000
+
+	// Enters title
 	moveMouseByPercentage(32.8125, 25.0697)
 	replaceInputFieldContent(emailTitle)
+
+	// Enters customer email
 	moveMouseByPercentage(32.8125, 30.4861)
 	replaceInputFieldContent(company.Emails)
 	moveMouseByPercentage(19.5, 42.5)
 	robotgo.Click()
+
+	// Enter CC emails
+
 	moveMouseByPercentage(32.8125, 36.4583)
 	replaceInputFieldCC(company.CC)
 
-	moveMouseByPercentage(32.8125, 52.8472)
+	// Selects BedKom as group
+	moveMouseByPercentage(32.8125, 52.7778)
 	robotgo.Click("left", false)
 	robotgo.MouseSleep = 300
-	moveMouseByPercentage(32.8125, 61.0417)
-	robotgo.Click("left", false)
+	robotgo.TypeStr("BedKom")
+	robotgo.KeyTap("enter")
+	//moveMouseByPercentage(32.8125, 60.3472)
+	//robotgo.Click("left", false)
 
 	moveMouseByPercentage(19.5, 42.5)
 	robotgo.Click()
 	robotgo.MouseSleep = 200
+	robotgo.KeyTap("pagedown")
+	time.Sleep(50 * time.Millisecond)
 
+	// Sets owner of the email
 	moveMouseByPercentage(53.6328, 67.1528)
 	robotgo.MouseSleep = 1000
 	robotgo.Click("left", false)
@@ -198,17 +212,24 @@ func sendMail(company Company) {
 	robotgo.TypeStr(EmailOwner)
 	robotgo.KeyTap("enter")
 
+	// files in the content of the email
 	robotgo.MouseSleep = 100
-
-	moveMouseByPercentage(32.8125, 42.5)
+	moveMouseByPercentage(32.8125, 41.11)
+	robotgo.Click()
+	time.Sleep(50 * time.Millisecond)
+	robotgo.KeyTap("backspace")
+	time.Sleep(50 * time.Millisecond)
+	robotgo.KeyTap("backspace")
 	replaceInputFieldContentMultiLine(company.Bedrift)
 
+	// Scolls to the bottom of the screen
 	moveMouseByPercentage(19.5, 42.5)
-	robotgo.Scroll(0, -1000)
+	robotgo.Click()
 
-	robotgo.MouseSleep = 500
-	moveMouseByPercentage(65.7422, 91.4)
-
+	// Moves the cursior to "create" and presses it if true
+	robotgo.MouseSleep = 1000
+	robotgo.KeyTap("pagedown")
+	moveMouseByPercentage(65.7422, 90.8333)
 	if ToSend {
 		robotgo.Click()
 	}

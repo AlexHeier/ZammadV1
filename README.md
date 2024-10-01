@@ -4,6 +4,8 @@ Automatiserer det å sende standard invitasjonens mailen til Login - BedKom ved 
 
 ## Before use
 
+Den er laget for opera med vanlig innstilliger på Windows 11.
+
 Sørg for at du kan kjøre golang kode.
 
 Sørg for at du har gått inn i main.go og forandrett pathen til csv filen.
